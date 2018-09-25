@@ -1,14 +1,11 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
-</ion-header>
+<ion-content padding class="page-container">
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <div class="ply-note-content">
+    <input type="text" class="pn-input" placeholder="Search your note here" [(ngModel)]="searchText" #ctrl="ngModel" (change)="searchNote()" sticky>    
+    <div class="ply-card ply-margin top" *ngFor="let text of textList">
+      {{text}}
+    </div>
+  </div>
 </ion-content>
+
+
