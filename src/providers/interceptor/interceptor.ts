@@ -5,15 +5,10 @@ import {
   HttpHandler,
   HttpEvent
 } from "@angular/common/http";
-import { Injectable, Injector } from "@angular/core";
+import { Injectable } from "@angular/core";
 import { Observable } from "rxjs/Observable";
 
-/*
-  Generated class for the InterceptorProvider provider.
 
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class InterceptorProvider implements HttpInterceptor {
   intercept(

@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { NotedbProvider } from '../../providers/notedb/notedb';
+import { NoteModel } from '../../models/note.model';
 
 @Component({
   selector: 'page-home',
@@ -8,9 +10,13 @@ import { NavController } from 'ionic-angular';
 export class HomePage {
 
   searchText:string = '';
-  textList = [];
-  constructor(public navCtrl: NavController) {
-    this.textList = [1,2,3,4,5,6,7];
+  notes:NoteModel[] = [];
+  constructor(public navCtrl: NavController, private noteDB: NotedbProvider) {
+    this.noteDB.allNote().then( notes => {
+      this.notes = <NoteModel[]>notes;
+    }).catch( err => {
+      console.log(err);
+    });
   }
 
   // html function

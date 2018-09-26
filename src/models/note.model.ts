@@ -2,7 +2,8 @@ import { UUID } from 'angular2-uuid';
 export class NoteModel {
     title: string;
     note: string;
-    createDate: Date;
+    createdAt: Date;
+    updatedAt: Date;
     sync: number;
     hashValue: string;
 
@@ -12,9 +13,15 @@ export class NoteModel {
         } else {
             this.title = '';
             this.note = '';
-            this.createDate = new Date();
+            this.createdAt = new Date();
             this.sync = 0;
             this.hashValue = UUID.UUID();
         }
+    }
+
+    validate(val: this){
+        if(!val.title)return false;
+        if(!val.note) return false;
+        if(!val.hashValue) return false;        
     }
 }
